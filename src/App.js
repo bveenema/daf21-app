@@ -8,7 +8,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 // App Components
 import DAF21AppBar from './components/AppBar'
-import MixStationWrapper from './MixStationWrapper'
+import MixStationWrapper from './MixStationWrap'
 
 const theme = createMuiTheme({
   palette: {
@@ -30,6 +30,7 @@ class App extends Component {
             <MuiThemeProvider theme={theme}>
               <DAF21AppBar />
               <div className="ContentWindow" styles={{ padding: 20}}>
+
                 <Grid
                    container
                    direction="column"

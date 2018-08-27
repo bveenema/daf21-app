@@ -11,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import PasswordField from 'material-ui-password-field'
 import Button from '@material-ui/core/Button'
+import Modal from '@material-ui/core/Modal'
 
 function getModalStyle() {
   const top = 50;
@@ -49,56 +50,72 @@ class LoginBox extends React.Component {
     if(this.state.userName === "DAF21" &&
        this.state.password === "12345"){
          alert('Correct!')
+         this.setState({
+           userName: '',
+           password: ''
+         })
+         this.props.onClose()
        }
     else {
       alert('Nope!')
     }
   }
 
+  handleKeyClose = e => {
+    console.log(e.keyCode)
+    if(e.keyCode === 13) // enter key
+      this.checkInputs();
+  }
+
   render(){
-    const { classes } = this.props;
+    const { classes, open, onClose } = this.props;
 
     return (
-      <div style={getModalStyle()} className={classes.paper}>
-        <Grid
-           container
-           direction="column"
-           justify="center"
-           alignItems="flex-start"
-        >
-          <Typography variant="title" id="modal-title">
-            Please Login
-          </Typography>
-          <FormControl
-            fullWidth={true}
-            margin='normal'
-            className={classes.formControl}
-            aria-describedby="userName-text"
+      <Modal
+        open={open}
+        onClose={onClose}
+      >
+        <div style={getModalStyle()} className={classes.paper} onKeyUp={this.handleKeyClose}>
+          <Grid
+             container
+             direction="column"
+             justify="center"
+             alignItems="flex-start"
           >
-            <InputLabel htmlFor="user-name">User Name:</InputLabel>
-            <Input autoFocus={true} id="user-name" value={this.state.userName} onChange={this.handleChange('userName')} />
-            <FormHelperText id="user-name-text">Username is: DAF21</FormHelperText>
-          </FormControl>
-          <FormControl
-            fullWidth={true}
-            margin='normal'
-            className={classes.formControl}
-            aria-describedby="password-text">
-            <InputLabel htmlFor="password">Password:</InputLabel>
-            <PasswordField onChange={this.handleChange('password')}/>
-            <FormHelperText id="password-text">Password is: 12345</FormHelperText>
-          </FormControl>
-          <Button
-            style= {{ marginTop: 20 }}
-            variant="contained"
-            color="secondary"
-            fullWidth={true}
-            onClick={this.checkInputs}
-          >
-            Login
-          </Button>
-        </Grid>
-      </div>
+            <Typography variant="title" id="modal-title">
+              Please Login
+            </Typography>
+            <FormControl
+              fullWidth={true}
+              margin='normal'
+              className={classes.formControl}
+              aria-describedby="userName-text"
+            >
+              <InputLabel htmlFor="user-name">User Name:</InputLabel>
+              <Input autoFocus={true} id="user-name" value={this.state.userName} onChange={this.handleChange('userName')} />
+              <FormHelperText id="user-name-text">Username is: DAF21</FormHelperText>
+            </FormControl>
+            <FormControl
+              fullWidth={true}
+              margin='normal'
+              className={classes.formControl}
+              aria-describedby="password-text">
+              <InputLabel htmlFor="password">Password:</InputLabel>
+              <PasswordField onChange={this.handleChange('password')}/>
+              <FormHelperText id="password-text">Password is: 12345</FormHelperText>
+            </FormControl>
+            <Button
+              style= {{ marginTop: 20 }}
+              variant="contained"
+              color="secondary"
+              fullWidth={true}
+              onClick={this.checkInputs}
+            >
+              Login
+            </Button>
+          </Grid>
+        </div>
+      </Modal>
     );
   }
 
@@ -106,6 +123,8 @@ class LoginBox extends React.Component {
 
 LoginBox.propTypes = {
   classes: PropTypes.object.isRequired,
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func
 };
 
 export default withStyles(styles)(LoginBox);

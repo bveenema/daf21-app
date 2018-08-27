@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Modal from '@material-ui/core/Modal'
 
 // Components
 import DrawerList from './DrawerList'
@@ -43,9 +42,9 @@ class DAF21AppBar extends React.Component {
     });
   };
 
-  toggleLogin = (open) => () => {
+  toggleLogin = (isOpen) => () => {
     this.setState({
-      loginOpen: open
+      loginOpen: isOpen
     });
   };
 
@@ -61,7 +60,7 @@ class DAF21AppBar extends React.Component {
             <Typography variant="title" color="inherit" className={classes.flex}>
               Mix Station Monitor
             </Typography>
-            <Button color="inherit" onClick={this.toggleLogin(true)}>Login</Button>
+            <Button color="inherit" onClick={this.toggleLogin(true)} on>Login</Button>
           </Toolbar>
         </AppBar>
         <SwipeableDrawer
@@ -79,12 +78,7 @@ class DAF21AppBar extends React.Component {
             <DrawerList />
           </div>
         </SwipeableDrawer>
-        <Modal
-          open={this.state.loginOpen}
-          onClose={this.toggleLogin(false)}
-        >
-          <LoginBox />
-        </Modal>
+        <LoginBox open={this.state.loginOpen}  onClose={this.toggleLogin(false)}/>
       </div>
     );
   }
