@@ -1,0 +1,48 @@
+const styles = theme => ({
+  summary: {
+    height: 32,
+    paddingLeft: 10,
+    fontSize: '1.1em',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '0.8em',
+    }
+  },
+  details: {
+    borderTop: '1px solid lightgray',
+    padding: 8,
+    margin: '0 6px'
+  },
+  jobInfo: {
+    fontSize: '0.7em',
+    borderTop: '1px solid lightgray',
+    padding: 8,
+    margin: '0 6px',
+  },
+  jobSite: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
+  lastShot: {
+    fontStyle: 'italic',
+    color: 'grey',
+  },
+  status: {
+    fontStyle: 'bold',
+    color: 'green'
+  },
+  statusChip: {
+    height: 28,
+    [theme.breakpoints.down('xs')]: {
+      height: 20
+    }
+  },
+  detailSection: {
+    borderTop: '1px solid lightgray',
+  },
+  setting: {
+    padding: '4px 4px 8px',
+  }
+});
+
+export default styles;

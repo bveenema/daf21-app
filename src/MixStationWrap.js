@@ -9,11 +9,15 @@ import Grid from '@material-ui/core/Grid';
 import MixStationExpansionPanel from './components/MixStationExpansionPanel'
 
 const styles = theme => ({
+  root: {
+    width: '100%',
+  },
   MixStationWrapper: {
     padding: 10,
     width: '100%',
-    maxWidth: 750,
+    maxWidth: 1200,
     marginTop: 20,
+    paddingBottom: 0,
     backgroundColor: theme.palette.background.paper,
   },
 });
@@ -29,9 +33,11 @@ function MixStationWrapper(props) {
          justify="center"
          alignItems="center"
       >
-        <MixStationExpansionPanel />
-        <MixStationExpansionPanel />
-        <MixStationExpansionPanel />
+        <div className={classes.root}>
+          <MixStationExpansionPanel />
+          <MixStationExpansionPanel />
+          <MixStationExpansionPanel />
+        </div>;
       </Grid>
     </div>
   );
