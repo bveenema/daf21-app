@@ -32,7 +32,7 @@ function MixStationExpansionPanel(props) {
         <ExpansionPanelSummary className={classes.summary} expandIcon={<ExpandMoreIcon />}>
           <Grid container direction="row" justify="space-between" alignItems="center">
             <Grid item xs={8} sm={7} className={classes.jobSite}>Barnes Airport Hanger 12</Grid>
-            <Hidden xsDown><Grid item sm={3} className={classes.lastShot}><Hidden smDown>Last Shot: </Hidden>3:51 PM</Grid></Hidden>
+            <Hidden xsDown><Grid item sm={3} className={classes.lastShot}><Hidden smDown>Last Shot: </Hidden>15:51 PM</Grid></Hidden>
             <Grid item xs={4} sm={2} className={classes.status}><Chip className={classes.statusChip} label="In Process" color="secondary" /></Grid>
           </Grid>
         </ExpansionPanelSummary>
@@ -76,7 +76,7 @@ function MixStationExpansionPanel(props) {
                 <ShotBox complete={true} time="7:41" />
                 <ShotBox complete={true} time="7:45" />
                 <ShotBox complete={true} time="13:49" />
-                <ShotBox complete={true} time="7:52" />
+                <ShotBox complete={true} time="15:51" />
                 <ShotBox complete={false} />
                 <ShotBox complete={false} />
                 <ShotBox complete={false} />
