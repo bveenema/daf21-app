@@ -37,7 +37,7 @@ function MixStationWrapper(props) {
           <MixStationExpansionPanel />
           <MixStationExpansionPanel />
           <MixStationExpansionPanel />
-        </div>;
+        </div>
       </Grid>
     </div>
   );

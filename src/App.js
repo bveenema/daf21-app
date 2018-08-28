@@ -29,7 +29,6 @@ class App extends Component {
             <MuiThemeProvider theme={theme}>
               <DAF21AppBar />
               <div className="ContentWindow" styles={{ padding: 20}}>
-
                 <Grid
                    container
                    direction="column"
