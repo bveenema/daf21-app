@@ -27,6 +27,18 @@ const styles = theme => ({
     fontStyle: 'italic',
     color: 'grey',
   },
+  shotTitle: {
+    fontSize: '0.8em',
+    fontWeight: 'bold'
+  },
+  shotDate: {
+    textAlign: 'center',
+    fontSize: '0.8em',
+    fontStyle: 'italic'
+  },
+  shotCertification: {
+    textAlign: 'right'
+  },
   status: {
     fontStyle: 'bold',
     color: 'green'
@@ -42,6 +54,12 @@ const styles = theme => ({
   },
   setting: {
     padding: '4px 4px 8px',
+  },
+  contactButton: {
+    margin: theme.spacing.unit,
+  },
+  contactButtonIcon: {
+    marginLeft: theme.spacing.unit,
   }
 });
 

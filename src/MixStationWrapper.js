@@ -4,36 +4,47 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 // App Components
-import MixStation from './components/MixStation'
+import MixStationExpansionPanel from './components/MixStationExpansionPanel'
 
 const styles = theme => ({
+  root: {
+    width: '100%',
+  },
   MixStationWrapper: {
     padding: 10,
     width: '100%',
-    maxWidth: 750,
+    maxWidth: 1200,
     marginTop: 20,
+    paddingBottom: 0,
     backgroundColor: theme.palette.background.paper,
   },
 });
 
-class MixStationWrapper extends React.Component {
-  render(){
-    const { classes } = this.props;
-    return(
-      <div className={classes.MixStationWrapper}>
-        <Grid
-           container
-           direction="column"
-           justify="center"
-           alignItems="center"
-        >
-          <MixStation />
-          <MixStation />
-          <MixStation />
-        </Grid>
-      </div>
-    );
-  }
+function MixStationWrapper(props) {
+  const { classes, ...mixers } = props;
+  console.log(classes)
+  console.log("mixers: ",mixers)
+  let mixStations = [];
+  mixers.mixer.forEach(mixer => {
+    mixStations.push(<MixStationExpansionPanel {...mixer} />)
+  })
+  return (
+    <div className={classes.MixStationWrapper}>
+      <Grid
+         container
+         direction="column"
+         justify="center"
+         alignItems="center"
+      >
+        <div className={classes.root}>
+          {mixStations}
+          {/* <MixStationExpansionPanel {...mixers.mixer[0]}/>
+          <MixStationExpansionPanel />
+          <MixStationExpansionPanel /> */}
+        </div>
+      </Grid>
+    </div>
+  );
 }
 
 MixStationWrapper.propTypes = {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 
@@ -7,7 +6,10 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 // App Components
 import DAF21AppBar from './components/AppBar'
-import MixStationWrapper from './MixStationWrap'
+import MixStationWrapper from './MixStationWrapper'
+
+// Data
+import mixers from './dummyData'
 
 const theme = createMuiTheme({
   palette: {
@@ -35,7 +37,7 @@ class App extends Component {
                    justify="center"
                    alignItems="center"
                 >
-                  <MixStationWrapper />
+                  <MixStationWrapper {...mixers}/>
                 </Grid>
               </div>
             </MuiThemeProvider>

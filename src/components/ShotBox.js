@@ -4,12 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import yellow from '@material-ui/core/colors/yellow';
 
 // MUI Components
-import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-
-// App Components
-import MixStationSetting from './MixStationSetting'
 
 // Styles
 const styles = theme => ({

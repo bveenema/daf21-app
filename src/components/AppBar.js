@@ -20,6 +20,7 @@ const styles = {
   },
   flex: {
     flexGrow: 1,
+    textAlign: 'center',
   },
   menuButton: {
     marginLeft: -12,
@@ -52,7 +53,7 @@ class DAF21AppBar extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" color="secondary">
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.toggleDrawer(true)}>
               <MenuIcon />
