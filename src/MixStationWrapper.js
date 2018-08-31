@@ -13,10 +13,8 @@ const styles = theme => ({
   MixStationWrapper: {
     padding: 10,
     width: '100%',
-    maxWidth: 1200,
-    marginTop: 20,
+    maxWidth: 1000,
     paddingBottom: 0,
-    backgroundColor: theme.palette.background.paper,
   },
 });
 
@@ -38,9 +36,6 @@ function MixStationWrapper(props) {
       >
         <div className={classes.root}>
           {mixStations}
-          {/* <MixStationExpansionPanel {...mixers.mixer[0]}/>
-          <MixStationExpansionPanel />
-          <MixStationExpansionPanel /> */}
         </div>
       </Grid>
     </div>

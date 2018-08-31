@@ -43,12 +43,6 @@ const styles = theme => ({
     fontStyle: 'bold',
     color: 'green'
   },
-  statusChip: {
-    height: 28,
-    [theme.breakpoints.down('xs')]: {
-      height: 20
-    }
-  },
   detailSection: {
     borderTop: '1px solid lightgray',
   },
@@ -60,7 +54,14 @@ const styles = theme => ({
   },
   contactButtonIcon: {
     marginLeft: theme.spacing.unit,
-  }
+  },
+  statusChip: {
+    height: 28,
+    [theme.breakpoints.down('xs')]: {
+      height: 20
+    },
+    backgroundColor: "#43a047"
+  },
 });
 
 export default styles;

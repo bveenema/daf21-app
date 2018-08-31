@@ -18,6 +18,7 @@ import PhoneIcon from '@material-ui/icons/Phone'
 // App Components
 import MixStationSetting from './MixStationSetting'
 import ShotBox from './ShotBox'
+import StatusChip from './StatusChip'
 
 // Styles
 import styles from './MixStationExpansionPanel_Style';
@@ -29,7 +30,7 @@ function MixStationExpansionPanel(props) {
   let shots = [];
   mixer.shots.statuses.forEach(status=>{
     if(status.time) lastShot = status.time
-    shots.push(<ShotBox complete={status.status==="good"} time={status.time} />)
+    shots.push(<ShotBox complete={status.status==="good"} time={status.time} error={status.status==="error"}/>)
   })
   console.log(lastShot);
   return (
@@ -38,7 +39,7 @@ function MixStationExpansionPanel(props) {
           <Grid container direction="row" justify="space-between" alignItems="center">
             <Grid item xs={8} sm={7} className={classes.jobSite}>{mixer.job.site}</Grid>
             <Hidden xsDown><Grid item sm={3} className={classes.lastShot}><Hidden smDown>Last Shot: </Hidden>{lastShot}</Grid></Hidden>
-            <Grid item xs={4} sm={2} className={classes.status}><Chip className={classes.statusChip} label={mixer.status} color="secondary" /></Grid>
+            <Grid item xs={4} sm={2} className={classes.status}><StatusChip status={mixer.status} /></Grid>
           </Grid>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.details}>

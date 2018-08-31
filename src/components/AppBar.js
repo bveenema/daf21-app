@@ -8,6 +8,9 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import Grid from '@material-ui/core/Grid';
 
 // Components
 import DrawerList from './DrawerList'
@@ -28,7 +31,11 @@ const styles = {
   },
   list: {
     width: 500,
-  }
+  },
+  drawerPaper: {
+    position: 'relative',
+    maxWidth: 300,
+  },
 };
 
 class DAF21AppBar extends React.Component {
@@ -52,33 +59,57 @@ class DAF21AppBar extends React.Component {
   render(){
     const { classes } = this.props;
     return (
-      <div className={classes.root}>
+      <div className={classes.root} style={{height:"100%"}}>
         <AppBar position="static" color="secondary">
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.toggleDrawer(true)}>
-              <MenuIcon />
-            </IconButton>
+            <Hidden mdUp>
+              <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.toggleDrawer(true)}>
+                <MenuIcon />
+              </IconButton>
+            </Hidden>
             <Typography variant="title" color="inherit" className={classes.flex}>
               Mix Station Monitor
             </Typography>
             <Button color="inherit" onClick={this.toggleLogin(true)} on>Login</Button>
           </Toolbar>
         </AppBar>
-        <SwipeableDrawer
-          anchor='left'
-          open={this.state.drawerOpen}
-          onClose={this.toggleDrawer(false)}
-          onOpen={this.toggleDrawer(true)}
-        >
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer(false)}
-            onKeyDown={this.toggleDrawer(false)}
+        <Hidden mdUp>
+          <SwipeableDrawer
+            anchor='left'
+            open={this.state.drawerOpen}
+            onClose={this.toggleDrawer(false)}
+            onOpen={this.toggleDrawer(true)}
           >
-            <DrawerList />
-          </div>
-        </SwipeableDrawer>
+            <div
+              tabIndex={0}
+              role="button"
+              onClick={this.toggleDrawer(false)}
+              onKeyDown={this.toggleDrawer(false)}
+            >
+              <DrawerList />
+            </div>
+          </SwipeableDrawer>
+          {this.props.children}
+        </Hidden>
+        <Hidden smDown>
+          <Grid container direction="row" justify="space-between" alignItems="flex-start"  style={{height:"100%"}}>
+            <Grid item md={3} style={{height:"100%"}}>
+              <Drawer
+                variant="permanent"
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
+                style={{height:"100%"}}
+              >
+                <DrawerList />
+              </Drawer>
+            </Grid>
+            <Grid md={9} flexGrow>
+              {this.props.children}
+            </Grid>
+          </Grid>
+        </Hidden>
+
         <LoginBox open={this.state.loginOpen}  onClose={this.toggleLogin(false)}/>
       </div>
     );

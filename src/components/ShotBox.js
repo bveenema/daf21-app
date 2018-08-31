@@ -14,9 +14,16 @@ const styles = theme => ({
   },
   checked: {},
   checkBox: {
-    color: yellow[600],
+    color: "#2196f3",
     '&$checked': {
-      color: yellow[600],
+      color: "#2196f3",
+    },
+  },
+  errored: {},
+  error: {
+    color: "#ff1744",
+    '&$errored': {
+      color: "#ff1744",
     },
   },
   shotLabel: {
@@ -26,16 +33,22 @@ const styles = theme => ({
 
 function ShotBox(props) {
   const { classes } = props;
+  let checkTypeStyle = {
+    root: classes.checkBox,
+    checked: classes.checked
+  };
+  if(props.error) checkTypeStyle = {
+    root: classes.error,
+    checked: classes.errored,
+  }
   return (
     <FormControlLabel
       control={
         <Checkbox
           checked={props.complete}
           value="checkedA"
-          classes={{
-            root: classes.checkBox,
-            checked: classes.checked
-          }}
+          classes={checkTypeStyle}
+          indeterminate={props.error}
         />
       }
       classes={{
