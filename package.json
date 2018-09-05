@@ -21,7 +21,10 @@
   },
   "homepage": "https://bveenema.github.io/daf21-app/",
   "devDependencies": {
+    "ajv": "^6.5.3",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.4.0",
     "gh-pages": "^1.2.0",
-    "ajv": "^6.5.3"
+    "react-test-renderer": "^16.4.2"
   }
 }
