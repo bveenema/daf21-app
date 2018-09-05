@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
 import {Helmet} from 'react-helmet';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 // App Components
-import DAF21AppBar from './components/AppBar'
+import Header from './components/Header'
 import MixStationWrapper from './MixStationWrapper'
 
 // Data
@@ -36,9 +35,9 @@ class App extends Component {
               <style>{'body, html, #root {background-color: lightgray; height:100%;}'}</style>
             </Helmet>
             <MuiThemeProvider theme={theme}>
-              <DAF21AppBar>
+              <Header>
                 <MixStationWrapper {...mixers}/>
-              </DAF21AppBar>
+              </Header>
             </MuiThemeProvider>
           </div>
         </React.Fragment>

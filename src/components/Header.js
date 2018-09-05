@@ -38,7 +38,7 @@ const styles = {
   },
 };
 
-class DAF21AppBar extends React.Component {
+class Header extends React.Component {
   state = {
     drawerOpen: false,
     loginOpen: false,
@@ -70,7 +70,7 @@ class DAF21AppBar extends React.Component {
             <Typography variant="title" color="inherit" className={classes.flex}>
               Mix Station Monitor
             </Typography>
-            <Button color="inherit" onClick={this.toggleLogin(true)} on>Login</Button>
+            <Button color="inherit" onClick={this.toggleLogin(true)}>Login</Button>
           </Toolbar>
         </AppBar>
         <Hidden mdUp>
@@ -104,7 +104,7 @@ class DAF21AppBar extends React.Component {
                 <DrawerList />
               </Drawer>
             </Grid>
-            <Grid md={9} flexGrow>
+            <Grid item md={9}>
               {this.props.children}
             </Grid>
           </Grid>
@@ -116,8 +116,8 @@ class DAF21AppBar extends React.Component {
   }
 }
 
-DAF21AppBar.propTypes = {
+Header.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(DAF21AppBar);
+export default withStyles(styles)(Header);
