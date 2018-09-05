@@ -20,11 +20,9 @@ const styles = theme => ({
 
 function MixStationWrapper(props) {
   const { classes, ...mixers } = props;
-  console.log(classes)
-  console.log("mixers: ",mixers)
   let mixStations = [];
-  mixers.mixer.forEach(mixer => {
-    mixStations.push(<MixStationExpansionPanel {...mixer} />)
+  mixers.mixer.forEach((mixer,i) => {
+    mixStations.push(<MixStationExpansionPanel {...mixer} key={i}/>)
   })
   return (
     <div className={classes.MixStationWrapper}>

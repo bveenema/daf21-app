@@ -31,6 +31,7 @@ function StatusChip(props) {
 
 StatusChip.propTypes = {
   classes: PropTypes.object.isRequired,
+  status: PropTypes.string.isRequired
 };
 
 export default withStyles(styles)(StatusChip);

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import yellow from '@material-ui/core/colors/yellow';
 
 // MUI Components
 import FormControlLabel from '@material-ui/core/FormControlLabel';

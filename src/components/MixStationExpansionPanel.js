@@ -25,14 +25,12 @@ import styles from './MixStationExpansionPanel_Style';
 
 function MixStationExpansionPanel(props) {
   const { classes, ...mixer} = props;
-  console.log("mixer:",mixer);
   let lastShot = "";
   let shots = [];
-  mixer.shots.statuses.forEach(status=>{
+  mixer.shots.statuses.forEach((status,i)=>{
     if(status.time) lastShot = status.time
-    shots.push(<ShotBox complete={status.status==="good"} time={status.time} error={status.status==="error"}/>)
+    shots.push(<ShotBox complete={status.status==="good"} time={status.time} error={status.status==="error"} key={i}/>)
   })
-  console.log(lastShot);
   return (
       <ExpansionPanel >
         <ExpansionPanelSummary className={classes.summary} expandIcon={<ExpandMoreIcon />}>
